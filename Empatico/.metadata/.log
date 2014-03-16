@@ -1,0 +1,136 @@
+!SESSION 2014-02-10 22:17:34.724 -----------------------------------------------
+eclipse.buildId=M20130204-1200
+java.version=1.7.0_05
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=pt_BR
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY org.eclipse.mylyn.tasks.ui 2 0 2014-02-10 22:19:39.365
+!MESSAGE No search provider was registed. Tasks search is not available.
+
+!ENTRY org.tigris.subversion.subclipse.core 4 -6 2014-02-10 22:23:04.128
+!MESSAGE org.apache.subversion.javahl.ClientException: Merge conflict during commit
+svn: Commit failed (details follow):
+svn: Empty directories are not supported: trunk/Alloy, trunk/Documentacao, trunk/Imagens, trunk/UML, trunk/src
+
+!STACK 0
+org.tigris.subversion.svnclientadapter.SVNClientException: org.apache.subversion.javahl.ClientException: Merge conflict during commit
+svn: Commit failed (details follow):
+svn: Empty directories are not supported: trunk/Alloy, trunk/Documentacao, trunk/Imagens, trunk/UML, trunk/src
+
+	at org.tigris.subversion.svnclientadapter.javahl.AbstractJhlClientAdapter.commit(AbstractJhlClientAdapter.java:348)
+	at org.tigris.subversion.subclipse.core.commands.CheckinResourcesCommand$1.run(CheckinResourcesCommand.java:143)
+	at org.tigris.subversion.subclipse.core.SVNProviderPlugin$6.run(SVNProviderPlugin.java:535)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2344)
+	at org.tigris.subversion.subclipse.core.SVNProviderPlugin.run(SVNProviderPlugin.java:530)
+	at org.tigris.subversion.subclipse.core.commands.CheckinResourcesCommand.run(CheckinResourcesCommand.java:118)
+	at org.tigris.subversion.subclipse.core.SVNTeamProvider.checkin(SVNTeamProvider.java:139)
+	at org.tigris.subversion.subclipse.ui.operations.CommitOperation.execute(CommitOperation.java:112)
+	at org.tigris.subversion.subclipse.ui.operations.SVNOperation.run(SVNOperation.java:90)
+	at org.eclipse.team.internal.ui.actions.JobRunnableContext.run(JobRunnableContext.java:144)
+	at org.eclipse.team.internal.ui.actions.JobRunnableContext$ResourceJob.runInWorkspace(JobRunnableContext.java:72)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:38)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+Caused by: org.apache.subversion.javahl.ClientException: Merge conflict during commit
+svn: Commit failed (details follow):
+svn: Empty directories are not supported: trunk/Alloy, trunk/Documentacao, trunk/Imagens, trunk/UML, trunk/src
+
+	at org.apache.subversion.javahl.SVNClient.commit(Native Method)
+	at org.tigris.subversion.svnclientadapter.javahl.AbstractJhlClientAdapter.commit(AbstractJhlClientAdapter.java:340)
+	... 12 more
+
+!ENTRY org.tigris.subversion.subclipse.core 4 -6 2014-02-10 22:25:34.015
+!MESSAGE org.apache.subversion.javahl.ClientException: Merge conflict during commit
+svn: Commit failed (details follow):
+svn: Empty directories are not supported: trunk/src
+
+!STACK 0
+org.tigris.subversion.svnclientadapter.SVNClientException: org.apache.subversion.javahl.ClientException: Merge conflict during commit
+svn: Commit failed (details follow):
+svn: Empty directories are not supported: trunk/src
+
+	at org.tigris.subversion.svnclientadapter.javahl.AbstractJhlClientAdapter.commit(AbstractJhlClientAdapter.java:348)
+	at org.tigris.subversion.subclipse.core.commands.CheckinResourcesCommand$1.run(CheckinResourcesCommand.java:143)
+	at org.tigris.subversion.subclipse.core.SVNProviderPlugin$6.run(SVNProviderPlugin.java:535)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2344)
+	at org.tigris.subversion.subclipse.core.SVNProviderPlugin.run(SVNProviderPlugin.java:530)
+	at org.tigris.subversion.subclipse.core.commands.CheckinResourcesCommand.run(CheckinResourcesCommand.java:118)
+	at org.tigris.subversion.subclipse.core.SVNTeamProvider.checkin(SVNTeamProvider.java:139)
+	at org.tigris.subversion.subclipse.ui.operations.CommitOperation.execute(CommitOperation.java:112)
+	at org.tigris.subversion.subclipse.ui.operations.SVNOperation.run(SVNOperation.java:90)
+	at org.eclipse.team.internal.ui.actions.JobRunnableContext.run(JobRunnableContext.java:144)
+	at org.eclipse.team.internal.ui.actions.JobRunnableContext$ResourceJob.runInWorkspace(JobRunnableContext.java:72)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:38)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+Caused by: org.apache.subversion.javahl.ClientException: Merge conflict during commit
+svn: Commit failed (details follow):
+svn: Empty directories are not supported: trunk/src
+
+	at org.apache.subversion.javahl.SVNClient.commit(Native Method)
+	at org.tigris.subversion.svnclientadapter.javahl.AbstractJhlClientAdapter.commit(AbstractJhlClientAdapter.java:340)
+	... 12 more
+!SESSION 2014-02-10 22:38:28.123 -----------------------------------------------
+eclipse.buildId=M20130204-1200
+java.version=1.7.0_05
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=pt_BR
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY org.eclipse.mylyn.tasks.ui 2 0 2014-02-10 22:55:13.104
+!MESSAGE No search provider was registed. Tasks search is not available.
+
+!ENTRY org.eclipse.equinox.p2.core 4 0 2014-02-10 23:01:22.472
+!MESSAGE Provisioning exception
+!STACK 1
+org.eclipse.equinox.p2.core.ProvisionException: No repository found at http://download.eclipse.org/webtools/update.
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.fail(AbstractRepositoryManager.java:393)
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.loadRepository(AbstractRepositoryManager.java:675)
+	at org.eclipse.equinox.internal.p2.metadata.repository.MetadataRepositoryManager.loadRepository(MetadataRepositoryManager.java:96)
+	at org.eclipse.equinox.internal.p2.metadata.repository.MetadataRepositoryManager.loadRepository(MetadataRepositoryManager.java:92)
+	at org.eclipse.equinox.p2.ui.LoadMetadataRepositoryJob.doLoad(LoadMetadataRepositoryJob.java:117)
+	at org.eclipse.equinox.p2.ui.LoadMetadataRepositoryJob.runModal(LoadMetadataRepositoryJob.java:102)
+	at org.eclipse.equinox.internal.p2.ui.sdk.PreloadingRepositoryHandler$2.runModal(PreloadingRepositoryHandler.java:83)
+	at org.eclipse.equinox.p2.operations.ProvisioningJob.run(ProvisioningJob.java:177)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+!SUBENTRY 1 org.eclipse.equinox.p2.metadata.repository 4 1000 2014-02-10 23:01:22.474
+!MESSAGE No repository found at http://download.eclipse.org/webtools/update.
+!SESSION 2014-02-26 13:07:26.875 -----------------------------------------------
+eclipse.buildId=M20130204-1200
+java.version=1.7.0_05
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=pt_BR
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY org.eclipse.mylyn.tasks.ui 2 0 2014-02-26 13:11:18.164
+!MESSAGE No search provider was registed. Tasks search is not available.
+
+!ENTRY com.android.ide.eclipse.ddms 4 0 2014-02-26 13:12:55.629
+!MESSAGE DDMS files not found: C:\Users\Igor\android-sdks\platform-tools\adb.exe C:\Users\Igor\android-sdks\tools\hprof-conv.exe C:\Users\Igor\android-sdks\tools\traceview.bat 
+
+!ENTRY com.android.ide.eclipse.ddms 4 0 2014-02-26 13:12:55.656
+!MESSAGE DDMS files not found: C:\Users\Igor\android-sdks\platform-tools\adb.exe C:\Users\Igor\android-sdks\tools\hprof-conv.exe C:\Users\Igor\android-sdks\tools\traceview.bat 
+!SESSION 2014-03-02 09:51:26.485 -----------------------------------------------
+eclipse.buildId=M20130204-1200
+java.version=1.7.0_05
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=pt_BR
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY org.eclipse.mylyn.tasks.ui 2 0 2014-03-02 09:52:52.792
+!MESSAGE No search provider was registed. Tasks search is not available.
+
+!ENTRY org.eclipse.equinox.p2.core 4 0 2014-03-02 10:18:33.434
+!MESSAGE Provisioning exception
+!STACK 1
+org.eclipse.equinox.p2.core.ProvisionException: No repository found at http://download.eclipse.org/webtools/update.
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.fail(AbstractRepositoryManager.java:393)
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.loadRepository(AbstractRepositoryManager.java:675)
+	at org.eclipse.equinox.internal.p2.metadata.repository.MetadataRepositoryManager.loadRepository(MetadataRepositoryManager.java:96)
+	at org.eclipse.equinox.internal.p2.metadata.repository.MetadataRepositoryManager.loadRepository(MetadataRepositoryManager.java:92)
+	at org.eclipse.equinox.p2.ui.LoadMetadataRepositoryJob.doLoad(LoadMetadataRepositoryJob.java:117)
+	at org.eclipse.equinox.p2.ui.LoadMetadataRepositoryJob.runModal(LoadMetadataRepositoryJob.java:102)
+	at org.eclipse.equinox.internal.p2.ui.sdk.PreloadingRepositoryHandler$2.runModal(PreloadingRepositoryHandler.java:83)
+	at org.eclipse.equinox.p2.operations.ProvisioningJob.run(ProvisioningJob.java:177)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+!SUBENTRY 1 org.eclipse.equinox.p2.metadata.repository 4 1000 2014-03-02 10:18:33.484
+!MESSAGE No repository found at http://download.eclipse.org/webtools/update.
