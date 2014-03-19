@@ -9,24 +9,25 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.GridView;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 
 public class MainActivity extends Activity {
-
-    private Integer[] mThumbIds = {R.drawable.ic_launcher,
-    		R.drawable.ic_launcher, R.drawable.ic_launcher,
-    		R.drawable.ic_launcher, R.drawable.ic_launcher,
-    		R.drawable.ic_launcher, R.drawable.ic_launcher,
-    		R.drawable.ic_launcher, R.drawable.ic_launcher,
-    		R.drawable.ic_launcher, R.drawable.ic_launcher};
  
+	private ImageButton[] mThumbIds;
  
     /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ImageButton button = new ImageButton(this);
+        ImageButton button2 = new ImageButton(this);
+    	button.setImageResource(R.drawable.ic_launcher);
+    	ImageButton[] buttons = {button, button2, button, button2, button, button2, button2, button, button};
+    	mThumbIds = buttons;
  
         GridView gridview = (GridView) findViewById(R.id.gridview1);
         gridview.setAdapter(new MyAdapter(this));
@@ -68,9 +69,8 @@ public class MainActivity extends Activity {
             }else{
                 grid = (View)convertView;
             }
- 
-            ImageView imageView = (ImageView)grid.findViewById(R.id.image);
-            imageView.setImageResource(mThumbIds[position]);
+           // ImageButton imageButton = (ImageButton)grid.findViewById(R.id.imageButton1);
+          //  imageB.setImageResource(mThumbIds[position]);
  
             return grid;
         }
