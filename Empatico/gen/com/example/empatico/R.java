@@ -28,8 +28,22 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int activity_vertical_margin=0x7f040001;
     }
     public static final class drawable {
-        public static final int ic_launcher=0x7f020000;
-        public static final int tela_inicial=0x7f020001;
+        public static final int a01=0x7f020000;
+        public static final int a02=0x7f020001;
+        public static final int adefinir=0x7f020002;
+        public static final int banheiro=0x7f020003;
+        public static final int beber=0x7f020004;
+        public static final int brincar=0x7f020005;
+        public static final int comer=0x7f020006;
+        public static final int dormir=0x7f020007;
+        public static final int ic_launcher=0x7f020008;
+        public static final int mal_estar=0x7f020009;
+        public static final int sair=0x7f02000a;
+        public static final int settings=0x7f02000b;
+        public static final int tela_back=0x7f02000c;
+        public static final int tela_inicial=0x7f02000d;
+        public static final int triste=0x7f02000e;
+        public static final int vestir=0x7f02000f;
     }
     public static final class string {
         public static final int action_settings=0x7f050005;
