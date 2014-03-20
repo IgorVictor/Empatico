@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.HorizontalScrollView;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
@@ -33,7 +32,7 @@ public class Empatico extends Activity implements View.OnClickListener {
 			for (int f=0; f<=5; f++) {
 				TableRow tr = new TableRow(this);
 				for (int c=0; c<14; c++) {
-					ImageButton b = new ImageButton (this);
+					HelpButton b = new HelpButton (this);
 					b.setImageResource(R.drawable.ic_launcher);
 					b.setOnClickListener(this);
 					tr.addView(b, 200,200);
