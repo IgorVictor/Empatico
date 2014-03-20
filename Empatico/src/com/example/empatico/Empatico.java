@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.HorizontalScrollView;
 import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TableLayout;
 import android.widget.TableRow;
@@ -15,12 +17,16 @@ public class Empatico extends Activity implements View.OnClickListener {
 		public void onCreate(Bundle savedInstanceState) {
 			super.onCreate(savedInstanceState);
 
+			LinearLayout layoutInicial = new LinearLayout(this);
 			HorizontalScrollView horizontalLayout = new HorizontalScrollView(this);
 			ScrollView verticalLayout = new ScrollView(this);
 			TableLayout layout = new TableLayout(this);
 			layout.setLayoutParams(new TableLayout.LayoutParams());
 			horizontalLayout.addView(verticalLayout);
 			verticalLayout.addView(layout);
+			ImageView image = new ImageView(this);
+			image.setImageResource(R.drawable.tela_inicial);
+			layoutInicial.addView(image);
 
 			layout.setPadding(1,1,1,1);
 
@@ -34,6 +40,7 @@ public class Empatico extends Activity implements View.OnClickListener {
 				} // for
 				layout.addView(tr);
 			} // for
+			super.setContentView(layoutInicial);
 			super.setContentView(horizontalLayout);
 		} // ()
 
