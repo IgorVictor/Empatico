@@ -1,22 +1,31 @@
 package com.example.empatico;
 
+import java.io.File;
+
 import android.app.Activity;
 import android.content.Context;
+import android.media.audiofx.BassBoost.Settings;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.HorizontalScrollView;
 import android.widget.ScrollView;
 import android.widget.TableLayout;
 import android.widget.TableRow;
+import android.widget.Toast;
 
-public class Empatico extends Activity implements View.OnClickListener {
+public class Empatico extends Activity{
 
 	
 		private short maxPerLine;
-	
+		private String absolutPath;
 		@Override
 		public void onCreate(Bundle savedInstanceState) {
 			super.onCreate(savedInstanceState);
+			File fileDir = this.getFilesDir();
+			absolutPath = fileDir.getAbsolutePath();
+			
+			//Log.d("Path do aplicativo", fileDir.getAbsolutePath());
 			
 			maxPerLine = 5;
 			int xTam = 200;
@@ -49,13 +58,32 @@ public class Empatico extends Activity implements View.OnClickListener {
 					tr = new TableRow(this);
 					tr.setPadding(0, 10, 0, 10);
 					HelpButton button = createButton(buttonImages[i],this);
-					button.setOnClickListener(this);
+					button.setOnClickListener(new View.OnClickListener() {
+						 
+						@Override
+						public void onClick(View v) {
+							Log.i("Path", absolutPath);
+							Toast t = Toast.makeText(getApplicationContext(), "Solicitação enviada.", Toast.LENGTH_SHORT);
+							t.show();
+							
+						}
+					});
 					tr.addView(button, xTam,yTam);
 					i++;
 				}
 				else {
 					HelpButton button = createButton(buttonImages[i],this);
-					button.setOnClickListener(this);
+					button.setOnClickListener(new View.OnClickListener() {
+						
+						@Override
+						public void onClick(View v) {
+							
+							Log.i("Path", absolutPath);
+							Toast t = Toast.makeText(getApplicationContext(), "Solicitação enviada.", Toast.LENGTH_SHORT);
+							t.show();
+							
+						}
+					});
 					tr.addView(button, xTam,yTam);
 					i++;
 				}
@@ -101,7 +129,4 @@ public class Empatico extends Activity implements View.OnClickListener {
 			return buttonImages;
 		} 
 
-		public void onClick(View view) {
-	
-		}
 }
