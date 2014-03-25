@@ -1,6 +1,18 @@
 package com.example.empatico;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.DatagramPacket;
+import java.net.DatagramSocket;
+import java.net.InetAddress;
+import java.util.List;
+
+import com.example.empatico.models.Component;
+import com.example.empatico.utils.IOUtils;
+import com.example.empatico.utils.NetworkUtils;
 
 import android.app.Activity;
 import android.content.Context;
@@ -15,7 +27,7 @@ import android.widget.TableRow;
 import android.widget.Toast;
 
 public class Empatico extends Activity{
-
+		
 	
 		private short maxPerLine;
 		private String absolutPath;
@@ -24,8 +36,6 @@ public class Empatico extends Activity{
 			super.onCreate(savedInstanceState);
 			File fileDir = this.getFilesDir();
 			absolutPath = fileDir.getAbsolutePath();
-			
-			//Log.d("Path do aplicativo", fileDir.getAbsolutePath());
 			
 			maxPerLine = 5;
 			int xTam = 200;
@@ -62,8 +72,11 @@ public class Empatico extends Activity{
 						 
 						@Override
 						public void onClick(View v) {
+							
+							sendUDPMessage("Teste de mensagem");
+							
 							Log.i("Path", absolutPath);
-							Toast t = Toast.makeText(getApplicationContext(), "Solicitação enviada.", Toast.LENGTH_SHORT);
+							Toast t = Toast.makeText(getApplicationContext(), "Mensagem: 'Teste de mensagem' enviada", Toast.LENGTH_SHORT);
 							t.show();
 							
 						}
@@ -77,11 +90,11 @@ public class Empatico extends Activity{
 						
 						@Override
 						public void onClick(View v) {
+							sendUDPMessage("Teste de mensagem");
 							
 							Log.i("Path", absolutPath);
-							Toast t = Toast.makeText(getApplicationContext(), "Solicitação enviada.", Toast.LENGTH_SHORT);
+							Toast t = Toast.makeText(getApplicationContext(), "Mensagem: 'Teste de mensagem' enviada", Toast.LENGTH_SHORT);
 							t.show();
-							
 						}
 					});
 					tr.addView(button, xTam,yTam);
@@ -127,6 +140,30 @@ public class Empatico extends Activity{
 			int[] buttonImages = {R.drawable.banheiro, R.drawable.beber, R.drawable.brincar, R.drawable.comer,
 					R.drawable.dormir, R.drawable.mal_estar, R.drawable.sair, R.drawable.triste, R.drawable.vestir};
 			return buttonImages;
-		} 
+		}
+		
+		
+		private static void sendUDPMessage(String msg) {
+
+		    try {
+		        DatagramSocket clientSocket = new DatagramSocket();
+
+		        clientSocket.setBroadcast(true);
+		        InetAddress address = InetAddress.getByName(NetworkUtils.getBroadcast());
+
+		        byte[] sendData;
+
+		        sendData = msg.getBytes();
+		        DatagramPacket sendPacket = new DatagramPacket(sendData,
+		                sendData.length, address, 5000);
+		        clientSocket.send(sendPacket);
+
+		        clientSocket.close();
+		    } catch (Exception e) {
+		        e.printStackTrace();
+		    }
+
+		}
+		
 
 }

@@ -1,4 +1,4 @@
-package com.example.empatico;
+package com.example.empatico.models;
 
 public class Component {
 	private String imagePath,soundPath,msgToSend;
@@ -27,7 +27,10 @@ public class Component {
 
 	
 	
-	
+	@Override
+	public String toString() {
+		return imagePath + " | " + soundPath + " | " + msgToSend;
+	}
 	
 	
 }
