@@ -25,6 +25,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.HorizontalScrollView;
+import android.widget.ImageButton;
 import android.widget.ScrollView;
 import android.widget.TableLayout;
 import android.widget.TableRow;
@@ -73,7 +74,7 @@ public class Empatico extends Activity{
 			TableRow tr = new TableRow(this);
 			tr.setPadding(left, top, right, bottom);
 			
-			HelpButton config = createButton(R.drawable.settings,this);
+			ImageButton config = createButton(R.drawable.settings,this);
 			config.setOnClickListener(new View.OnClickListener() {
 				 
 				@Override
@@ -91,7 +92,7 @@ public class Empatico extends Activity{
 					layout.addView(tr);
 					tr = new TableRow(this);
 					tr.setPadding(0, 10, 0, 10);
-					HelpButton button = createButton(buttonImages[i],this);
+					ImageButton button = createButton(buttonImages[i],this);
 					button.setPadding(0, 0, 20, 0);
 					button.setOnClickListener(new View.OnClickListener() {
 						 
@@ -111,7 +112,7 @@ public class Empatico extends Activity{
 					i++;
 				}
 				else {
-					HelpButton button = createButton(buttonImages[i],this);
+					ImageButton button = createButton(buttonImages[i],this);
 					button.setPadding(0, 0, 20, 0);
 					button.setOnClickListener(new View.OnClickListener() {
 						
@@ -132,8 +133,8 @@ public class Empatico extends Activity{
 				layout.addView(tr);
 			}
 		}
-		private HelpButton createButton(int imageId, Context context){
-			HelpButton b = new HelpButton(context);
+		private ImageButton createButton(int imageId, Context context){
+			ImageButton b = new ImageButton(context);
 			b.setImageResource(imageId);
 			return b;
 		}
