@@ -11,27 +11,38 @@ import android.net.wifi.WifiManager;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.app.Activity;
+import android.app.IntentService;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
 import android.view.Menu;
+import android.widget.Toast;
 
-public class MainService extends Service {
+public class MainService extends IntentService {
 
 	
 	
-    private static final int PORT = 5500;
+    public MainService(String name) {
+		super(name);
+		
+	}
+
+
+
+	private static final int PORT = 5500;
 	private Activity mContext;
     
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
     	DatagramSocket socket;
 		try {
+			System.out.println("Funfou");
 			socket = new DatagramSocket(PORT);
 			socket.setBroadcast(true);
 			byte[] buf = new byte[1024];
 	    	DatagramPacket packet = new DatagramPacket(buf, buf.length);
 	    	socket.receive(packet);
+	    	System.out.println("Funfou");
 		} catch (SocketException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
@@ -60,6 +71,15 @@ public class MainService extends Service {
 	public IBinder onBind(Intent arg0) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+
+
+	@Override
+	protected void onHandleIntent(Intent workIntent) {
+		
+		 String dataString = workIntent.getDataString();
+		 Toast.makeText(mContext, "Funfou Bagaça", 50);
 	}
     
 }
