@@ -16,6 +16,8 @@ import com.example.empatico.utils.NetworkUtils;
 
 import android.app.Activity;
 import android.content.Context;
+import android.os.Bundle;
+import android.view.Display;
 import android.media.audiofx.BassBoost.Settings;
 import android.os.Bundle;
 import android.util.Log;
@@ -37,13 +39,22 @@ public class Empatico extends Activity{
 			File fileDir = this.getFilesDir();
 			absolutPath = fileDir.getAbsolutePath();
 			
-			maxPerLine = 5;
-			int xTam = 200;
-			int yTam = 200;
+
+			//Log.d("Path do aplicativo", fileDir.getAbsolutePath());
+			
+			
+			Display display = getWindowManager().getDefaultDisplay();
+			int width = display.getWidth();
+			int height = display.getHeight();
+			
+			maxPerLine = 3;
+			int xTam = width/3;
+			int yTam = height/2;
+			
 			int top = 0;
-			int left = 10;
+			int left = 0;
 			int right = 0;
-			int bottom = 10;
+			int bottom = 20;
 			int[] buttonImages = prepareImageArray();
 			HorizontalScrollView horizontalLayout = prepareHorizontal();
 			ScrollView verticalLayout = prepareVertical();
@@ -61,6 +72,7 @@ public class Empatico extends Activity{
 			tr.setPadding(left, top, right, bottom);
 			
 			HelpButton config = createButton(R.drawable.settings,this);
+			tr.setBackgroundResource(R.drawable.softbar);
 			tr.addView(config);
 			while (i<buttonImages.length){
 				if(i%maxPerLine == 0){
@@ -68,6 +80,7 @@ public class Empatico extends Activity{
 					tr = new TableRow(this);
 					tr.setPadding(0, 10, 0, 10);
 					HelpButton button = createButton(buttonImages[i],this);
+					button.setPadding(0, 0, 20, 0);
 					button.setOnClickListener(new View.OnClickListener() {
 						 
 						@Override
@@ -81,11 +94,13 @@ public class Empatico extends Activity{
 							
 						}
 					});
+
 					tr.addView(button, xTam,yTam);
 					i++;
 				}
 				else {
 					HelpButton button = createButton(buttonImages[i],this);
+					button.setPadding(0, 0, 20, 0);
 					button.setOnClickListener(new View.OnClickListener() {
 						
 						@Override
@@ -120,7 +135,7 @@ public class Empatico extends Activity{
 
 		private TableLayout prepareTable() {
 			TableLayout layout = new TableLayout(this);
-			layout.setBackgroundResource(R.drawable.tela_back);
+			layout.setBackgroundResource(R.drawable.tela_back2);
 			return layout;
 		}
 

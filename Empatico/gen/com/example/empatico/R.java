@@ -40,10 +40,12 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int mal_estar=0x7f020009;
         public static final int sair=0x7f02000a;
         public static final int settings=0x7f02000b;
-        public static final int tela_back=0x7f02000c;
-        public static final int tela_inicial=0x7f02000d;
-        public static final int triste=0x7f02000e;
-        public static final int vestir=0x7f02000f;
+        public static final int softbar=0x7f02000c;
+        public static final int tela_back=0x7f02000d;
+        public static final int tela_back2=0x7f02000e;
+        public static final int tela_inicial=0x7f02000f;
+        public static final int triste=0x7f020010;
+        public static final int vestir=0x7f020011;
     }
     public static final class string {
         public static final int action_settings=0x7f050005;
