@@ -8,6 +8,7 @@ import java.util.List;
 
 import com.example.empatico.models.Component;
 import com.example.empatico.utils.IOUtils;
+import com.example.empatico.utils.JSONUtils;
 import com.example.empatico.utils.NetworkUtils;
 
 import android.app.Activity;
@@ -42,6 +43,9 @@ public class Empatico extends Activity{
 			 
 
 			//Log.d("Path do aplicativo", fileDir.getAbsolutePath());
+ 
+			
+			
 			
 			
 
@@ -54,7 +58,18 @@ public class Empatico extends Activity{
 				Log.v("JSON EXIST", "JSON já existe");
 			}
 			
+			IOUtils.copyFromDefault(this);
 			
+			components = JSONUtils.generateComponents(this);
+			
+			for(Component c : components){
+				if(IOUtils.verifyFileExists(this, c.getImagePath()))
+					Log.d("VERIFICA ARQUIVO", c.getImagePath() + " foi copiado e pode ser aberto");
+				else
+					Log.e("VERIFICA ARQUIVO", c.getImagePath() + " não foi copiado e não pode ser aberto");
+				
+			}
+				
 			
 			Display display = getWindowManager().getDefaultDisplay();
 			int width = display.getWidth();
@@ -97,7 +112,7 @@ public class Empatico extends Activity{
 			tr.setBackgroundResource(R.drawable.softbar);
 			tr.addView(config);
 			while (i<buttonImages.length){
-				if(i%maxPerLine == 0){
+				if(i%maxPerLine == 0){ 
 					layout.addView(tr);
 					tr = new TableRow(this);
 					tr.setPadding(0, 10, 0, 10);

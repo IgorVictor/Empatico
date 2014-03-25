@@ -16,6 +16,10 @@ public class Component {
 		return imagePath;
 	}
 
+	public void setImagePath(String path){
+		this.imagePath = path;
+	}
+	
 	public String getSoundPath() {
 		return soundPath;
 	}
