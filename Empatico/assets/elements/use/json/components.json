@@ -1,0 +1,6 @@
+[
+	{"imagePath": "img/dormir.png","soundPath": "", msg = "Quero dormir"},
+	{"imagePath": "img/comer.png","soundPath": "", msg = "Quero comer"},
+	{"imagePath": "img/banheiro.png","soundPath": "", msg = "Quero ir ao banheiro"}
+	
+]  

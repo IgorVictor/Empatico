@@ -7,5 +7,18 @@
     <string name="dummy_content">DUMMY\nCONTENT</string>
     <string name="title_activity_main">Empatico</string>
     <string name="action_settings">Settings</string>
+    <string name="title_activity_config">TODO</string>
+    <string name="detalhes_da_a_o">Detalhes da ação</string>
+    <string name="lista_de_a_es">Lista de ações</string>
+    <string name="nova_senha">Nova senha</string>
+    <string name="salvar_a_o">Salvar ação</string>
+    <string name="excluir_a_o">Excluir ação</string>
+    <string name="criar_nova_a_o">Criar nova ação</string>
+    <string name="digite_o_nome_do_dependente">Digite o nome do dependente</string>
+    <string name="sair">Sair</string>
+    <string name="salvar_altera_es">Salvar alterações</string>
+    <string name="mensagem_da_a_o">Mensagem da ação</string>
+    <string name="endere_o_do_alerta_sonoro">Endereço do alerta sonoro</string>
+    <string name="endere_o_da_imagem">Endereço da imagem</string>
 
 </resources>

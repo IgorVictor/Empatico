@@ -1,0 +1,13 @@
+[
+	{"imagePath": "dormir.png","soundPath": "", msgToSend ="Quero dormir"},
+	{"imagePath": "comer.png","soundPath": "", msgToSend ="Quero comer"},
+	{"imagePath": "banheiro.png","soundPath": "", msgToSend ="Quero ir ao banheiro"},
+	{"imagePath": "adefinir.png","soundPath": "", msgToSend ="A definir"},
+	{"imagePath": "beber.png","soundPath": "", msgToSend ="Quero beber algo"},
+	{"imagePath": "brincar.png","soundPath": "", msgToSend ="Quero brincar"},
+	{"imagePath": "mal_estar.png","soundPath": "", msgToSend ="Estou com mal estar"},
+	{"imagePath": "sair.png","soundPath": "", msgToSend ="Quero sair"},
+	{"imagePath": "vestir.png","soundPath": "", msgToSend ="Quero me vestir"},
+	{"imagePath": "triste.png","soundPath": "", msgToSend ="Estou triste"}
+	
+]  
