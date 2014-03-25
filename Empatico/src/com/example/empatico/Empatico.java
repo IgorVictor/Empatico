@@ -16,6 +16,7 @@ import com.example.empatico.utils.NetworkUtils;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.view.Display;
 import android.media.audiofx.BassBoost.Settings;
@@ -36,6 +37,7 @@ public class Empatico extends Activity{
 		@Override
 		public void onCreate(Bundle savedInstanceState) {
 			super.onCreate(savedInstanceState);
+			this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
 			File fileDir = this.getFilesDir();
 			absolutPath = fileDir.getAbsolutePath();
 			
