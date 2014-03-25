@@ -16,6 +16,7 @@ import com.example.empatico.utils.NetworkUtils;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.view.Display;
@@ -58,13 +59,12 @@ public class Empatico extends Activity{
 			int right = 0;
 			int bottom = 20;
 			int[] buttonImages = prepareImageArray();
-			HorizontalScrollView horizontalLayout = prepareHorizontal();
 			ScrollView verticalLayout = prepareVertical();
 			TableLayout layout = prepareTable();
-			mountLayout(horizontalLayout, verticalLayout,
+			mountLayout(verticalLayout,
 					layout);
 			setButtonsOnLayout(xTam, yTam, buttonImages, layout, left, top, right, bottom);
-			super.setContentView(horizontalLayout);
+			super.setContentView(verticalLayout);
 		}
 
 		private void setButtonsOnLayout(int xTam, int yTam, int[] buttonImages,
@@ -74,6 +74,16 @@ public class Empatico extends Activity{
 			tr.setPadding(left, top, right, bottom);
 			
 			HelpButton config = createButton(R.drawable.settings,this);
+			config.setOnClickListener(new View.OnClickListener() {
+				 
+				@Override
+				public void onClick(View v) {
+					
+					Intent intent = new Intent(Empatico.this, Config.class);
+					startActivity(intent);
+				}
+			});
+		
 			tr.setBackgroundResource(R.drawable.softbar);
 			tr.addView(config);
 			while (i<buttonImages.length){
@@ -129,9 +139,7 @@ public class Empatico extends Activity{
 		}
 
 		private void mountLayout(
-				HorizontalScrollView horizontalLayout,
 				ScrollView verticalLayout, TableLayout layout) {
-			horizontalLayout.addView(verticalLayout);
 			verticalLayout.addView(layout);
 		}
 
