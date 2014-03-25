@@ -2,7 +2,10 @@ package com.example.empatico.utils;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
 
 import android.app.Activity;
 import android.util.Log;
@@ -23,6 +26,14 @@ public class JSONUtils {
 		return jsonContent;
 	}
 	
+	/**
+	 * 
+	 * @param components - Componentes que as repetições serão filtradas pelo ID.
+	 */
+	public static void removeRepeat(List<Component> components){
+		
+		
+	}
 	
 	public static List<Component> generateComponents(Activity act){
 		String jsonContent = IOUtils.getJsonContent(act.getAssets());
@@ -31,11 +42,34 @@ public class JSONUtils {
 
 		Type t = new TypeToken<List<Component>>(){}.getType();
 		
-		List<Component> result = gson.fromJson(jsonContent, t);
+		List<Component> resultTemp = gson.fromJson(jsonContent, t);
+		List<Component> result = new LinkedList<Component>();
+		
+		for(Component c : resultTemp){
+			if(!result.contains(c)){
+				Log.d("Compoennte", c.toString());
+				result.add(c);
+			}
+		}
 		
 		
-		for(Component c : result)
+		
+		
+		
+		
+		/*Set<Component> filter = new TreeSet<Component>();
+		
+		
+		for(Component c : result){
+			filter.add(c);
+		}
+		
+		result = new ArrayList<Component>();
+		for(Component c : filter){
 			Log.d("Compoennte", c.toString());
+			result.add(c);
+		}*/
+			
 		
 		
 		

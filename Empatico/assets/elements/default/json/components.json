@@ -1,13 +1,14 @@
 [
-	{"imagePath": "dormir.png","soundPath": "", msgToSend ="Quero dormir"},
-	{"imagePath": "comer.png","soundPath": "", msgToSend ="Quero comer"},
-	{"imagePath": "banheiro.png","soundPath": "", msgToSend ="Quero ir ao banheiro"},
-	{"imagePath": "adefinir.png","soundPath": "", msgToSend ="A definir"},
-	{"imagePath": "beber.png","soundPath": "", msgToSend ="Quero beber algo"},
-	{"imagePath": "brincar.png","soundPath": "", msgToSend ="Quero brincar"},
-	{"imagePath": "mal_estar.png","soundPath": "", msgToSend ="Estou com mal estar"},
-	{"imagePath": "sair.png","soundPath": "", msgToSend ="Quero sair"},
-	{"imagePath": "vestir.png","soundPath": "", msgToSend ="Quero me vestir"},
-	{"imagePath": "triste.png","soundPath": "", msgToSend ="Estou triste"}
+	{id: "1", imagePath: "dormir.png", soundPath: "", msgToSend ="Quero dormir"},
+	{id: "2", imagePath: "comer.png", soundPath : "", msgToSend ="Quero comer"},
+	{id: "3", imagePath: "banheiro.png", soundPath : "", msgToSend ="Quero ir ao banheiro"},
+	{id: "4", imagePath: "adefinir.png", soundPath : "", msgToSend ="A definir"},
+	{id: "5", imagePath: "beber.png", soundPath : "", msgToSend ="Quero beber algo"},
+	{id: "6", imagePath: "brincar.png", soundPath : "", msgToSend ="Quero brincar"},
+	{id: "7", imagePath: "mal_estar.png", soundPath : "", msgToSend ="Estou com mal estar"},
+	{id: "8", imagePath: "sair.png", soundPath : "", msgToSend ="Quero sair"},
+	{id: "9", imagePath: "vestir.png", soundPath : "", msgToSend ="Quero me vestir"},
+	{id: "10", imagePath: "triste.png", soundPath : "", msgToSend ="Estou triste"},
+	{id: "1", imagePath: "testa_repeticao.png", soundPath: "", msgToSend ="Testa repetição"}
 	
 ]  
