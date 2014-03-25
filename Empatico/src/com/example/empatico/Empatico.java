@@ -1,10 +1,6 @@
 package com.example.empatico;
 
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
@@ -20,8 +16,6 @@ import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.view.Display;
-import android.media.audiofx.BassBoost.Settings;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.HorizontalScrollView;
@@ -36,15 +30,30 @@ public class Empatico extends Activity{
 	
 		private short maxPerLine;
 		private String absolutPath;
+		private List<Component> components;
+		
+		
 		@Override
 		public void onCreate(Bundle savedInstanceState) {
 			super.onCreate(savedInstanceState);
 			this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
 			File fileDir = this.getFilesDir();
 			absolutPath = fileDir.getAbsolutePath();
-			
+			 
 
 			//Log.d("Path do aplicativo", fileDir.getAbsolutePath());
+			
+			
+
+			if(!IOUtils.verifyJsonExists(this)){
+				IOUtils.generateJson(this);
+				Log.d("JSON EXIST", "JSON nao existe e foi criado");
+				if(IOUtils.verifyJsonExists(this))
+					Log.v("JSON EXIST", "JSON foi criado");
+			}else{
+				Log.v("JSON EXIST", "JSON já existe");
+			}
+			
 			
 			
 			Display display = getWindowManager().getDefaultDisplay();
