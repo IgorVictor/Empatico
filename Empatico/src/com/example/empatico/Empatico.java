@@ -1,6 +1,8 @@
 package com.example.empatico;
 
 import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
@@ -15,6 +17,9 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.content.res.AssetManager;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.Display;
 import android.util.Log;
@@ -40,14 +45,8 @@ public class Empatico extends Activity{
 			this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
 			File fileDir = this.getFilesDir();
 			absolutPath = fileDir.getAbsolutePath();
-			 
 
 			//Log.d("Path do aplicativo", fileDir.getAbsolutePath());
- 
-			
-			
-			
-			
 
 			if(!IOUtils.verifyJsonExists(this)){
 				IOUtils.generateJson(this);
@@ -69,8 +68,6 @@ public class Empatico extends Activity{
 					Log.e("VERIFICA ARQUIVO", c.getImagePath() + " não foi copiado e não pode ser aberto");
 				
 			}
-				
-			
 			Display display = getWindowManager().getDefaultDisplay();
 			int width = display.getWidth();
 			int height = display.getHeight();
@@ -83,22 +80,23 @@ public class Empatico extends Activity{
 			int left = 0;
 			int right = 0;
 			int bottom = 20;
-			int[] buttonImages = prepareImageArray();
+			//int[] buttonImages = prepareImageArray();
 			ScrollView verticalLayout = prepareVertical();
 			TableLayout layout = prepareTable();
 			mountLayout(verticalLayout,
 					layout);
-			setButtonsOnLayout(xTam, yTam, buttonImages, layout, left, top, right, bottom);
+			setButtonsOnLayout(xTam, yTam, components, layout, left, top, right, bottom);
 			super.setContentView(verticalLayout);
 		}
 
-		private void setButtonsOnLayout(int xTam, int yTam, int[] buttonImages,
+		private void setButtonsOnLayout(int xTam, int yTam, List<Component> buttonImages,
 				TableLayout layout, int left, int top, int right, int bottom) {
 			int i = 0;
 			TableRow tr = new TableRow(this);
 			tr.setPadding(left, top, right, bottom);
 			
-			ImageButton config = createButton(R.drawable.settings,this);
+			ImageButton config = new ImageButton(this);
+			config.setImageResource(R.drawable.settings);
 			config.setOnClickListener(new View.OnClickListener() {
 				 
 				@Override
@@ -111,12 +109,12 @@ public class Empatico extends Activity{
 		
 			tr.setBackgroundResource(R.drawable.softbar);
 			tr.addView(config);
-			while (i<buttonImages.length){
+			while (i<buttonImages.size()){
 				if(i%maxPerLine == 0){ 
 					layout.addView(tr);
 					tr = new TableRow(this);
 					tr.setPadding(0, 10, 0, 10);
-					ImageButton button = createButton(buttonImages[i],this);
+					ImageButton button = createButton(buttonImages.get(i).getImagePath(),this);
 					button.setPadding(0, 0, 20, 0);
 					button.setOnClickListener(new View.OnClickListener() {
 						 
@@ -136,7 +134,7 @@ public class Empatico extends Activity{
 					i++;
 				}
 				else {
-					ImageButton button = createButton(buttonImages[i],this);
+					ImageButton button = createButton(buttonImages.get(i).getImagePath(),this);;
 					button.setPadding(0, 0, 20, 0);
 					button.setOnClickListener(new View.OnClickListener() {
 						
@@ -157,10 +155,26 @@ public class Empatico extends Activity{
 				layout.addView(tr);
 			}
 		}
-		private ImageButton createButton(int imageId, Context context){
+		private ImageButton createButton(String string, Context context){
 			ImageButton b = new ImageButton(context);
-			b.setImageResource(imageId);
+			Bitmap bMap = getBitmapFromAsset("elements/default/img/" + string);
+			Log.d("BitMap é NULL?", String.valueOf(bMap==null) + " " + string);
+			b.setImageBitmap(bMap);
 			return b;
+		}
+		//Isso tá sendo necessário porque estamos lendo de asset por enquanto. Tem como saber quando é de
+		//asser e quando é external?
+		private Bitmap getBitmapFromAsset(String strName)
+		{
+		    AssetManager assetManager = getAssets();
+		    InputStream istr = null;
+		    try {
+		        istr = assetManager.open(strName);
+		    } catch (IOException e) {
+		        e.printStackTrace();
+		    }
+		    Bitmap bitmap = BitmapFactory.decodeStream(istr);
+		    return bitmap;
 		}
 
 		private void mountLayout(

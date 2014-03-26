@@ -18,7 +18,7 @@
     </TableRow>
 
     <EditText
-        android:id="@+id/editText1"
+        android:id="@+id/nomeDependente"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -33,22 +33,16 @@
         android:layout_height="wrap_content" >
 
         <Button
-            android:id="@+id/button1"
+            android:id="@+id/criarNovaAcao"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/criar_nova_a_o" />
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/excluirAcao"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/excluir_a_o" />
-
-        <Button
-            android:id="@+id/button3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/salvar_a_o" />
 
     </TableRow>
 
@@ -60,7 +54,7 @@
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <EditText
-        android:id="@+id/editText5"
+        android:id="@+id/novaSenha"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10" />
@@ -73,7 +67,7 @@
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <ListView
-        android:id="@+id/listView1"
+        android:id="@+id/listaAcoes"
         android:layout_width="match_parent"
         android:layout_height="214dp"
         android:layout_weight="0.12" >
@@ -93,7 +87,7 @@
         android:text="@string/endere_o_da_imagem" />
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/imagePath"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10" />
@@ -105,7 +99,7 @@
         android:text="@string/endere_o_do_alerta_sonoro" />
 
     <EditText
-        android:id="@+id/editText3"
+        android:id="@+id/soundPath"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10" />
@@ -117,7 +111,7 @@
         android:text="@string/mensagem_da_a_o" />
 
     <EditText
-        android:id="@+id/editText4"
+        android:id="@+id/helpText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10" />
