@@ -6,6 +6,7 @@ import java.io.InputStream;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
+import java.net.URI;
 import java.util.List;
 
 import com.example.empatico.models.Component;
@@ -20,6 +21,7 @@ import android.content.pm.ActivityInfo;
 import android.content.res.AssetManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.Display;
 import android.util.Log;
@@ -37,6 +39,7 @@ public class Empatico extends Activity{
 		private short maxPerLine;
 		private String absolutPath;
 		private List<Component> components;
+		MediaPlayer mp;
 		
 		
 		@Override
@@ -45,6 +48,7 @@ public class Empatico extends Activity{
 			this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
 			File fileDir = this.getFilesDir();
 			absolutPath = fileDir.getAbsolutePath();
+			mp = MediaPlayer.create(this,R.raw.jump);
 
 			//Log.d("Path do aplicativo", fileDir.getAbsolutePath());
 
@@ -121,8 +125,8 @@ public class Empatico extends Activity{
 						@Override
 						public void onClick(View v) {
 							
-							sendUDPMessage("Teste de mensagem");
-							
+							sendUDPMessage("Teste de mensagem");	
+							mp.start();
 							Log.i("Path", absolutPath);
 							Toast t = Toast.makeText(getApplicationContext(), "Mensagem: 'Teste de mensagem' enviada", Toast.LENGTH_SHORT);
 							t.show();
@@ -141,7 +145,7 @@ public class Empatico extends Activity{
 						@Override
 						public void onClick(View v) {
 							sendUDPMessage("Teste de mensagem");
-							
+							mp.start();
 							Log.i("Path", absolutPath);
 							Toast t = Toast.makeText(getApplicationContext(), "Mensagem: 'Teste de mensagem' enviada", Toast.LENGTH_SHORT);
 							t.show();
@@ -193,19 +197,6 @@ public class Empatico extends Activity{
 			verticalLayout.setFillViewport(true);
 			return verticalLayout;
 		}
-
-		private HorizontalScrollView prepareHorizontal() {
-			HorizontalScrollView horizontalLayout = new HorizontalScrollView(this);
-			horizontalLayout.setFillViewport(true);
-			return horizontalLayout;
-		}
-
-		private int[] prepareImageArray() {
-			int[] buttonImages = {R.drawable.banheiro, R.drawable.beber, R.drawable.brincar, R.drawable.comer,
-					R.drawable.dormir, R.drawable.mal_estar, R.drawable.sair, R.drawable.triste, R.drawable.vestir};
-			return buttonImages;
-		}
-		
 		
 		private static void sendUDPMessage(String msg) {
 
