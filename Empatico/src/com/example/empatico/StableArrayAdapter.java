@@ -1,6 +1,5 @@
 package com.example.empatico;
 
-import java.util.HashMap;
 import java.util.List;
 
 import com.example.empatico.models.Component;
@@ -22,15 +21,8 @@ class StableArrayAdapter extends ArrayAdapter<String> {
 	}
 	@Override
 	public long getItemId(int position) {
-		String item = getItem(position);
-		for (int i = 0; i < objectsIntern.size(); ++i) {
-			if (objectsIntern.get(i).equals(item)){
-				int j = objectsIntern.get(i).getId();
-				Log.d("ListView", "Objeto selecionado. ID: " + j);
-				return j;
-			}
-		}
-		return 0;
+		Log.d("ListView", "Objeto selecionado. ID: " + position);
+		return position;
 	}
 
 	@Override
